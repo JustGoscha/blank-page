@@ -1,0 +1,29 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600,700);
+@import url(https://fonts.googleapis.com/css?family=Cardo:400,400italic,700);
+@import url(https://fonts.googleapis.com/css?family=Amiri:400,400italic,700,700italic);
+
+#blank-page-wrapper{
+  box-sizing: border-box;
+  padding: 20px 40px;
+  font-family: Cardo, Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 24px;
+  
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  
+  .more{
+    cursor: pointer;
+    border-bottom: 1px solid #aaa;
+    animation: .8s ease-in-out 0s infinite alternate blink;
+  }
+}
+
+@keyframes blink{
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
