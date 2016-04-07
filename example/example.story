@@ -11,4 +11,4 @@ Ich kniff die Augen zusammen und suchte mein Zimmer ab. Meine digitale Uhr leuch
 
 §4 This is the end (end)
 
-$end
+§end

@@ -4,7 +4,9 @@ var parser = {};
 var pathRegex = /§(\w+)(?=\s)/;
 var beginsWithNewline = /^\s*\n/;
 var paraRegex = /^\s*\n/;
-var more = "[...]"
+var whiteSpace = /^\s*$/;
+var trailingWhitespace = /\s*$/;
+var more = "[...]";
 
 
 parser.paths = function(text){
@@ -17,7 +19,7 @@ parser.paths = function(text){
       console.log(`Warning - Path ${paths[splitted[i]]} defined multiple times!`);
     }
   }
-
+  console.log(paths)
   return paths;
 }
 
@@ -39,10 +41,11 @@ function trimNewlineOrSpace(text){
 function splitParagraphs(text){
   var paragraphs = text.split("\n\n");
   paragraphs = paragraphs.filter(function(p){
-    return p.length !== 0;
+    return !whiteSpace.test(p);
   });
   paragraphs = paragraphs.map(function(p){
     var ps = p.split(more);
+    ps[ps.length-1] = ps[ps.length-1].replace(trailingWhitespace, "");
     return ps;
   })
   return paragraphs;
