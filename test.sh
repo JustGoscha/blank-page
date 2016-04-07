@@ -1,0 +1,1 @@
+./node_modules/mocha/bin/mocha ./test/main.coffee --compilers coffee:coffee-script/register --reporter spec
