@@ -26,13 +26,11 @@ function initDocument(el){
   outer.appendChild(inner);
   outer.classList.add("--gg-blank-page-wrapper");
   inner.classList.add("inner-wrapper");
-  inner.innerText = "This is a test... a really really really really long long long test test test test test"
   el.appendChild(outer);
   content = inner;
 }
 
 
-var currentParagraph;
 
 /**
  * Creates new paragraph on element
@@ -41,8 +39,8 @@ var currentParagraph;
  */
 Paper.prototype.writeParagraph = function(paragraph){
   var p = document.createElement("p");
-  p.innerText = paragraph;
-  currentParagraph = p;
+  p.innerHTML = paragraph;
+  this.currentParagraph = p;
   content.appendChild(p);
 }
 
@@ -52,8 +50,12 @@ Paper.prototype.writeParagraph = function(paragraph){
  * @param more (description)
  */
 Paper.prototype.continue = function(more){
-  var p = currentParagraph;
-  p.innerText = p.innerText + more;
+  if(!this.currentParagraph){
+    this.writeParagraph(more);
+    return;
+  }
+  var p = this.currentParagraph;
+  p.innerHTML = p.innerHTML + more;
 }
 
 export default Paper;

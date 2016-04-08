@@ -1,6 +1,11 @@
 Presentation:
   ☐ parse paragraph to HTML
-  ☐ render Paragraph
-  ☐ with more...
+  ✔ render Paragraph @done (16-04-09 00:08)
+  ✔ with more... @done (16-04-09 00:08)
 
   ✔ load story @done (16-04-07 23:37)
+
+  ☐ parse multiple choice
+  ☐ render multiple choice
+
+  ☐ colors
