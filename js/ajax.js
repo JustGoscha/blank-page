@@ -21,7 +21,7 @@ function ajax(url, callback, data, x) {
   }
 };
 
-module.exports = ajax;
+export default ajax;
 
 
 // https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest

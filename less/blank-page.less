@@ -2,13 +2,13 @@
 @import url(https://fonts.googleapis.com/css?family=Cardo:400,400italic,700);
 @import url(https://fonts.googleapis.com/css?family=Amiri:400,400italic,700,700italic);
 
-#blank-page-wrapper{
+.--gg-blank-page-wrapper{
   box-sizing: border-box;
-  padding: 20px 40px;
+  padding: 50px 40px;
   font-family: Cardo, Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   font-size: 24px;
-  background-color: #020202;
-  color: #ccc;
+  background-color: #dedede;
+  color: #333;
   width: 100%;
   height: 100%;
   
@@ -16,11 +16,23 @@
     box-sizing: inherit;
   }
   
+  .inner-wrapper{
+    margin:auto;
+    max-width: 800px;  
+  }
+  
   .more{
     cursor: pointer;
     border-bottom: 1px solid #aaa;
     animation: .8s ease-in-out 0s infinite alternate blink;
   }
+}
+
+@media(max-width:600px){
+  .--gg-blank-page-wrapper{
+    font-size: 20px;    
+  }
+
 }
 
 @keyframes blink{

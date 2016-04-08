@@ -4,6 +4,6 @@
     "module": "es6"
   },
   "files": [
-    "js/main.js"
+    "main.js"
   ]
 }
