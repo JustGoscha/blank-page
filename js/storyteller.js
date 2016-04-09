@@ -30,10 +30,11 @@ function tellPart(section, i, j){
   if(more) more.remove()
   // only first line of section first part
   // write new paragraph or continue old one...
+  var part = parser.part(section.paragraphs[i][j]);
   if(noNewline(i, j, section)){
-    paper.continue(section.paragraphs[i][j]);
+    paper.continue(part.text);
   } else {
-    paper.writeParagraph(section.paragraphs[i][j]);
+    paper.writeParagraph(part.text);
   }
   
   var end = i>=section.paragraphs.length-1 && j>=section.paragraphs.length-1;

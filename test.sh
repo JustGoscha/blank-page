@@ -1,1 +1,1 @@
-./node_modules/mocha/bin/mocha ./test/main.coffee --compilers coffee:coffee-script/register --reporter spec
+./node_modules/mocha/bin/mocha ./test/main.coffee --compilers js:babel/register --compilers coffee:coffee-script/register --reporter spec

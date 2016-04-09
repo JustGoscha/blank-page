@@ -17,6 +17,7 @@
     "chai": "^3.5.0",
     "chai-as-promised": "^5.3.0",
     "coffee-script": "^1.10.0",
+    "es6-module-transpiler-coffee-brunch": "^0.1.0",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-babel": "^5.3.0",

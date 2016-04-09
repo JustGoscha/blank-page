@@ -1,6 +1,7 @@
 require('chai').should()
 
 parser = __require('parser')
+# `import parser from "../js/parser.js
 
 text = """
 §0
@@ -16,7 +17,7 @@ Well whatever.
 text2 = """
 §0
 Ich erwachte durch einen lauten Knall. [...] Finsternis umgab mich. Selbst durch die Kunststoffjalousien konnte ich kaum einen Lichtschein erkennen.
-[1|Im zimmer Umschauen] [2|Zum Fenster gehen] [3|Zur Tür gehen]
+::(Im zimmer Umschauen=>1) (Zum Fenster gehen=>2) (Zur Tür gehen=>4)::
 
 
 §1
@@ -30,6 +31,8 @@ Ich kniff die Augen zusammen und suchte mein Zimmer ab. Meine digitale Uhr leuch
 $end
 
 """
+
+multiple = "Blabla bla, Mr Freeman ::(Im zimmer Umschauen=>1)(Zum Fenster gehen=>2)(Zur Tür gehen=>4)::"
 
 for k,val of parser.paths text2 then parser.section val
 
@@ -56,4 +59,12 @@ describe "Story Parser", ->
     pp2.paragraphs[0].length.should.equal 2
     pp2.paragraphs[0][0].should.equal "Another path leads here. "
     pp2.paragraphs[0][1].should.equal "\nWell whatever."
+
+  it "should parse a part of a section for display", ->
+    parsed = parser.part multiple
+    console.log parsed
+    parsed.multipleChoice.should.be.true
+    parsed.text.should.equal """Blabla bla, Mr Freeman <div class="multiple-choice"><div class="choice" data-path="1">Im zimmer Umschauen</div><div class="choice" data-path="2">Zum Fenster gehen</div><div class="choice" data-path="4">Zur Tür gehen</div></div>"""
+
+
 

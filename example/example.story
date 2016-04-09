@@ -1,12 +1,11 @@
 §0
-Ich erwachte durch einen lauten Knall. [...] Finsternis umgab mich. Selbst durch die Kunststoffjalousien konnte ich kaum einen Lichtschein erkennen.
-[1|Im zimmer Umschauen] [2|Zum Fenster gehen] [3|Zur Tür gehen]
+Ich erwachte durch einen lauten Knall. [...] Finsternis umgab mich. Selbst durch die Kunststoffjalousien konnte ich kaum einen Lichtschein erkennen. ::(Im Zimmer umschauen=>1)(Zum Fenster gehen=>2)(Zur Tür gehen=>3)(Nochmal einschlafen=>4)(In den Arm kneifen=>5)::
 
 Here is a second paragraph. [...] with a continue...
 
 and a third one.
 
-fourth [...] fifth [...] sixth [...] end.
+fourth [...] fifth [...] **sixth** [...] ***end***.
 
 
 §1

@@ -24,7 +24,7 @@ function initDocument(el){
   var outer = document.createElement("div");
   var inner = document.createElement("div");
   outer.appendChild(inner);
-  outer.classList.add("--gg-blank-page-wrapper");
+  outer.classList.add("gg-blank-page-wrapper");
   inner.classList.add("inner-wrapper");
   el.appendChild(outer);
   content = inner;

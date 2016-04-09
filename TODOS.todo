@@ -1,11 +1,22 @@
 Presentation:
-  ☐ parse paragraph to HTML
-  ✔ render Paragraph @done (16-04-09 00:08)
-  ✔ with more... @done (16-04-09 00:08)
+  ☐ add event listeners to choices
+  ☐ up down buttons
+  ☐ remove more when mC/remove mC after choice...
+  ☐ render next path...
 
-  ✔ load story @done (16-04-07 23:37)
 
-  ☐ parse multiple choice
-  ☐ render multiple choice
+  ☐ chapter changing colors...
+  ☐ animation
+   ☐ more...
+   ☐ appearing text (blast.js)
 
-  ☐ colors
+  ☐ -> powered by blank-page.js by justGoscha (on safari pulldown)
+
+＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
+Archive:
+ ✔ render multiple choice @done (16-04-09 23:04) @project(Presentation)
+ ✔ parse paragraph to HTML @done (16-04-09 23:04) @project(Presentation)
+ ✔ parse multiple choice @done (16-04-09 23:04) @project(Presentation)
+ ✔ with more... @done (16-04-09 00:08) @project(Presentation)
+ ✔ render Paragraph @done (16-04-09 00:08) @project(Presentation)
+ ✔ load story @done (16-04-07 23:37) @project(Presentation)
