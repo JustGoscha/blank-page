@@ -15,4 +15,20 @@ interaction.awaitInput = function(element){
   return promise;
 }
 
+interaction.awaitChoice = function(element){
+  var promise = new Promise(function(resolve, reject){
+    var choices = element.getElementsByClassName('choice');
+    Array.from(choices).forEach(function(choice){
+      choice.addEventListener('click',function(){
+        var path = choice.getAttribute("data-path");
+        resolve(path);
+      });
+    })
+    // element.addEventListener('click', function(){
+    //   resolve("1");
+    // })
+  });
+  return promise;
+}
+
 export default interaction;

@@ -19,76 +19,87 @@ Storyteller.prototype.start = function(element, story){
 }
 
 var more;
+var multipleChoice;
+var pIndex;
+var sIndex;
 
 function noNewline(i,j,section){
-  var firstParagraph = i==0 && j==0 && section.newline;
+  var firstParagraph = j==0;
   var continuingParagraph = j>0;
-  return firstParagraph || continuingParagraph;
+  return !(firstParagraph && section.newline);
+  //return !firstParagraph || !continuingParagraph;
 }
 
+/**
+ * Tells the smallest fraction of the story and delegates interactions
+ */
 function tellPart(section, i, j){
   if(more) more.remove()
   // only first line of section first part
   // write new paragraph or continue old one...
   var part = parser.part(section.paragraphs[i][j]);
+  
   if(noNewline(i, j, section)){
     paper.continue(part.text);
   } else {
     paper.writeParagraph(part.text);
   }
   
-  var end = i>=section.paragraphs.length-1 && j>=section.paragraphs.length-1;
-
-  if(!end){
-    more = createMoreIndication(paper.currentParagraph);
+  if(part.multipleChoice){
+    // create listeners for multiple choice
+    var multipleChoice = paper.currentParagraph.getElementsByClassName("multiple-choice")[0];
+    interaction.awaitChoice(multipleChoice).then(function(choice){
+      multipleChoice.remove();
+      tellSection(choice);
+    });
+    
+  } else {
+    var end = i>=section.paragraphs.length-1 && j>=section.paragraphs[i].length-1;
+    if(!end){
+      more = createMoreIndication(paper.currentParagraph);
+      interaction.awaitInput(more).then(forEveryPart);
+    }
   }
 
 }
 
+/** 
+ * runs for every part (a part is a subsection of a paragraph)
+ */
+function forEveryPart(){
+  sIndex++;
+  if(sIndex < currentSection.paragraphs[pIndex].length){
+    tellPart(currentSection,pIndex,sIndex);
+    
+  } else {
+    pIndex++;
+    forEveryParagraph();
+  }
+}
+
+/**
+ *  runs for every paragraph (of a section)
+ */
+function forEveryParagraph(){
+  sIndex = 0;
+  if(pIndex >= currentSection.paragraphs.length) return;
+
+  tellPart(currentSection,pIndex,sIndex);
+}
+
+/**
+ * Tells one complete section/path of a story
+ */
 function tellSection(id){
   currentSection = parser.section(_story[id]);
-
   if (currentSection.paragraphs.length>0){
-    var pIndex = 0;
-    var forEveryParagraph = function(){
-      var sIndex = 0;
-      if(pIndex >= currentSection.paragraphs.length) return;
-      // debugger
-      tellPart(currentSection,pIndex,sIndex);
-
-      var forEveryPart = function(){
-        // debugger
-        sIndex++;
-        if(sIndex < currentSection.paragraphs[pIndex].length){
-          tellPart(currentSection,pIndex,sIndex);
-
-          interaction.awaitInput(more).then(forEveryPart);
-        } else {
-          pIndex++;
-          forEveryParagraph();
-        }
-      }
-      interaction.awaitInput(more).then(forEveryPart);
-    }
-
+    pIndex = 0;
     forEveryParagraph();
-
-  
-
-    // write to paper
-    // 
-    // add more... to interaction
-    // 
-    // 
-    // put callback into paper
-    // what if button is pushed?
-    // also call callback...
-    // finish animation quickly... then write next one.
-    // if(currentSection){}
   } else {
     // end of story... ?
+    // section has no paragraphs
+    console.log(`Section ${currentPath} has no paragraphs. So this is the end`);
   }
-  
 }
 
 function createMoreIndication(p){

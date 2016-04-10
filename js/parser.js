@@ -15,7 +15,7 @@ var italics = /(\*|__)([^]*?)\1/g;
 var italicsRepl = "<em>$2</em>";
 
 var multipleChoice = /(::)([^]*?)\1/g // ::(Choice one=>1)(Choice two=>2)::
-var decisions = /(\()(.*?)=>(\w)(\))/g
+var decisions = /(\()(.*?)=>(\w*)(\))/g
 
 
 
@@ -49,7 +49,7 @@ function trimNewlineOrSpace(text) {
 }
 
 function splitParagraphs(text) {
-  var paragraphs = text.split("\n\n");
+  var paragraphs = text.split(/\r?\n\r?\n/g);
   paragraphs = paragraphs.filter(function(p) {
     return !whiteSpace.test(p);
   });
@@ -83,7 +83,7 @@ function parseFontStyle(text){
 }
 
 function parseLineBreaks(text){
-  return text.replace("\n","<br>");
+  return text.replace(/\r?\n/g,"<br>");
 }
 
 function parseMultipleChoice(part){
