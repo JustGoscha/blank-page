@@ -1,8 +1,9 @@
 require('chai').should()
 
-parser = __require('parser')
+parser = __require('parser').default
 # `import parser from "../js/parser.js
 
+console.log parser
 text = """
 §0
 This is the first paragraph
