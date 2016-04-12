@@ -1,24 +1,28 @@
 §0
-Ich erwachte durch einen lauten Knall. [...] Dunkelheit umgab mich. Selbst durch die Kunststoffjalousien konnte ich kaum einen Lichtschein erkennen. ::(Im Zimmer umschauen=>1)(Zum Fenster gehen=>2)(Zur Tür gehen=>3)(Nochmal einschlafen=>4)(In den Arm kneifen=>5)::
+I was woken by a loud bang. [...] Darkness surrounded me. Even through the louvered blinds came no light. ::(Lookaround the room=>1)(Go to the window=>2)(Go to the door=>3)(Go back to sleep=>sleep)::
 
 §1
-Ich kniff die Augen zusammen und suchte mein Zimmer ab. Meine digitale Uhr leuchtete nicht. Der Strom schien ausgefallen zu sein, denn keines der elektrischen Geräte schien ein Licht abzugeben. Trotzdessen war es beängstigend dunkel im Raum.
+I squinted trying to see more in the room. The light of my digital clock was out. So was every other electrical light in my room. There must be a power failure I guessed. ::(Go to the window=>2)(Find some light=>light)::
 
 §2 
-Ich zwang mich aufzustehen, ich spürte noch immer die Müdigkeit in meinen Gliedern. Mein Arm war halb eingeschlafen. Doch ein beunruhigendes Gefühl lies mich all diese Dinge vergessen. Ich torkelte über das kalte Parkett zum Fenster in der Hoffnung nicht zu stolpern. Bis meine Hände in die Jalousie griffen.
+I forced myself to stand up. I still felt the drowsiness in my body. The adrenaline rush from the bang was wearing off. I lurched slowly to the window trying not to trip over something on the floor. I reached my hands out, until my hands felt the slats of the blinds.
 
-Ich zog mit den Fingern die Sprossen auseinander, doch zu meiner Verwunderung konnte ich dadurch auch nicht mehr von der Außenwelt erkennen. Es war komplette Finsternis. Ich konnte weder leuchtende Straßenlaternen ausmachen, noch den Mond oder die Sterne und vor allem keine Umrisse. ::(Suche nach etwas Leuchtendem=>4)(Gehe zur Tür=>3):: 
+I spread the blades between my fingers to take a look, but to my surprise I only saw more darkness. No street lights. Nothing, not even the stars and the moon seemed to shine. The power outage must've hit the whole district. ::(Find some light=>4)(Go to the door=>3)::
 
 §3 
+I sneaked to the door feeling the cold parquet on my naked feet. Stepping out in the corridor I saw only more emptiness. Good that as I child I often used to pretend I'm blind and could move around like DareDevil across our apartment. ...
 
 §4 
-Ich überlegte was ich denn zum leuchten bringen könnte, um mich in dieser Dunkelheit orientieren zu können. Mir fiel mein Handy ein. Ich bewegte mich mit etwas mehr Sicherheit zum Bett zurück. Ich tastete unter das Bett ab und kriegte es schließlich zu fassen. Ich drückte den an Knopf... [...] Tot! *Verdammt, wieso hab ich's nich aufgeladen*, dachte ich. Ich hatte auch keine Taschenlampe zur Verfügung. Verdammte Smartphones, wieso muss alles heutzutage auf denen drauf sein! [...] In der Küche gibt es vielleicht ein Feuerzeug. [...] Oder Streichhölzer! 
-::(In die Küche gehen=>kitchen)(Wieder schlafen legen=>sleep):: 
+What could I use as a light source? My mobile I thought and rushed back to bed with slightly more confidence. 
+::(Pick up phone=>light)(Go back to sleep=>sleep)::
+
+§light
+I picked up my phone from the bed and pushed the button. [...] Dead! [...] Dammit, why didn't I plug it in before going to bed. What else could I use? I have no flashlight nothing. Damn those new technologies and apps. [...] I could go to the kitchen and find a lighter or some matches. ::(Go to kitchen=>kitchen)(Go back to sleep=>sleep)::
 
 §sleep
-"Ach was solls, das kann auch bis morgen warten", dachte ich und legte mich wieder hin.
+"What the heck, let's sleep it out, in the morning I'll see more", I thought and laid myself back to bed.
 
 §kitchen
-Ich beschloss also in die Küche zu gehen. Ich tastete mich erst zur Tür voran...
+I decided to check out the kitchen. As I was walking...
 
 §end
