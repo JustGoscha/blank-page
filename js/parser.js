@@ -14,7 +14,7 @@ var strongRepl = "<strong>$2</strong>";
 var italics = /(\*|__)([^]*?)\1/g;
 var italicsRepl = "<em>$2</em>";
 
-var multipleChoice = /(::)([^]*?)\1/g // ::(Choice one=>1)(Choice two=>2)::
+var multipleChoice = /(::)([^]*?)\1/ // ::(Choice one=>1)(Choice two=>2)::
 var decisions = /(\()(.*?)=>(\w*)(\))/g
 
 
