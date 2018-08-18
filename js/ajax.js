@@ -1,6 +1,6 @@
 /**
  * IE 5.5+, Firefox, Opera, Chrome, Safari XHR object
- * 
+ *
  * @param string url
  * @param object callback
  * @param mixed data
@@ -8,20 +8,20 @@
  */
 function ajax(url, callback, data, x) {
   try {
-    x = new (window.XMLHttpRequest || ActiveXObject)("MSXML2.XMLHTTP.3.0");
-    x.open(data ? "POST" : "GET", url, 1);
-    x.setRequestHeader("X-Requested-With", "XMLHttpRequest");
-    x.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    x = new (window.XMLHttpRequest || ActiveXObject)("MSXML2.XMLHTTP.3.0")
+    x.open(data ? "POST" : "GET", url, 1)
+    x.setRequestHeader("X-Requested-With", "XMLHttpRequest")
+    x.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
     x.onreadystatechange = function() {
-      x.readyState > 3 && callback && callback(x.responseText, x);
-    };
-    x.send(data);
+      x.readyState > 3 && callback && callback(x.responseText, x)
+    }
+    x.send(data)
   } catch (e) {
-    window.console && console.log(e);
+    window.console && console.log(e)
   }
 }
 
-export default ajax;
+export default ajax
 
 // https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest
 // https://gist.github.com/jed/993585
