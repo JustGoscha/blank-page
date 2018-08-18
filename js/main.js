@@ -1,39 +1,39 @@
-import ajax from "./ajax.js";
-import parser from "./parser.js";
-import storyteller from "./storyteller.js";
+import ajax from "./ajax.js"
+import parser from "./parser.js"
+import storyteller from "./storyteller.js"
 
-var done = false;
+var done = false
 var doneCallback = function() {
-  console.log("standard done callback");
-};
-var story;
-var el;
+  console.log("standard done callback")
+}
+var story
+var el
 
 var Blank = function(url, element) {
-  this.url = url;
-  el = element;
+  this.url = url
+  el = element
   ajax(url, data => {
     // parse story...
-    story = parser.paths(data);
-    doneCallback();
-    done = true;
-  });
-  return this;
-};
+    story = parser.paths(data)
+    doneCallback()
+    done = true
+  })
+  return this
+}
 
 Blank.prototype.start = function() {
   var start = () => {
-    storyteller.start(el, story);
-  };
+    storyteller.start(el, story)
+  }
   if (done) {
     // start story
-    start();
+    start()
   } else {
     doneCallback = function() {
-      console.log("new done callback");
-      start();
-    };
+      console.log("new done callback")
+      start()
+    }
   }
-};
+}
 
-window.Blank = Blank;
+window.Blank = Blank
