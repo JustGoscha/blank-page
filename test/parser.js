@@ -2,15 +2,18 @@
 (function() {
   var k, multiple, p1, p2, ref, text, text2, val;
 
-  require('chai').should();
+  require("chai").should();
 
-  import parser from '../js/parser.js;
+  import parser from "../js/parser.js";
 
-  text = "§0\nThis is the first paragraph\n\nSecond Paragraph.\n\n§1 Another path leads here. [...]\nWell whatever.\n";
+  text =
+    "§0\nThis is the first paragraph\n\nSecond Paragraph.\n\n§1 Another path leads here. [...]\nWell whatever.\n";
 
-  text2 = "§0\nIch erwachte durch einen lauten Knall. [...] Finsternis umgab mich. Selbst durch die Kunststoffjalousien konnte ich kaum einen Lichtschein erkennen.\n::(Im zimmer Umschauen=>1) (Zum Fenster gehen=>2) (Zur Tür gehen=>4)::\n\n\n§1\nIch kniff die Augen zusammen und suchte mein Zimmer ab. Meine digitale Uhr leuchtete nicht. Der Strom schien ausgefallen zu sein, denn keines der elektrischen Geräte schien ein Licht abzugeben. Trotzdessen war es beängstigend dunkel im Raum.\n\n§2 Bla blub\n§3 Lol (4 - What?)\n\n§4 This is the end (end)\n\n$end\n";
+  text2 =
+    "§0\nIch erwachte durch einen lauten Knall. [...] Finsternis umgab mich. Selbst durch die Kunststoffjalousien konnte ich kaum einen Lichtschein erkennen.\n::(Im zimmer Umschauen=>1) (Zum Fenster gehen=>2) (Zur Tür gehen=>4)::\n\n\n§1\nIch kniff die Augen zusammen und suchte mein Zimmer ab. Meine digitale Uhr leuchtete nicht. Der Strom schien ausgefallen zu sein, denn keines der elektrischen Geräte schien ein Licht abzugeben. Trotzdessen war es beängstigend dunkel im Raum.\n\n§2 Bla blub\n§3 Lol (4 - What?)\n\n§4 This is the end (end)\n\n$end\n";
 
-  multiple = "Blabla bla, Mr Freeman ::(Im zimmer Umschauen=>1)(Zum Fenster gehen=>2)(Zur Tür gehen=>4)::";
+  multiple =
+    "Blabla bla, Mr Freeman ::(Im zimmer Umschauen=>1)(Zum Fenster gehen=>2)(Zur Tür gehen=>4)::";
 
   ref = parser.paths(text2);
   for (k in ref) {
@@ -26,8 +29,12 @@
     it("should find all defined §paths in a story", function() {
       var parsed;
       parsed = parser.paths(text);
-      parsed["0"].should.equal("\nThis is the first paragraph\n\nSecond Paragraph.\n\n");
-      return parsed["1"].should.equal(" Another path leads here. [...]\nWell whatever.\n");
+      parsed["0"].should.equal(
+        "\nThis is the first paragraph\n\nSecond Paragraph.\n\n"
+      );
+      return parsed["1"].should.equal(
+        " Another path leads here. [...]\nWell whatever.\n"
+      );
     });
     it("should parse a section", function() {
       var pp1, pp2;
@@ -48,8 +55,9 @@
       parsed = parser.part(multiple);
       console.log(parsed);
       parsed.multipleChoice.should.be["true"];
-      return parsed.text.should.equal("Blabla bla, Mr Freeman <div class=\"multiple-choice\"><div class=\"choice\" data-path=\"1\">Im zimmer Umschauen</div><div class=\"choice\" data-path=\"2\">Zum Fenster gehen</div><div class=\"choice\" data-path=\"4\">Zur Tür gehen</div></div>");
+      return parsed.text.should.equal(
+        'Blabla bla, Mr Freeman <div class="multiple-choice"><div class="choice" data-path="1">Im zimmer Umschauen</div><div class="choice" data-path="2">Zum Fenster gehen</div><div class="choice" data-path="4">Zur Tür gehen</div></div>'
+      );
     });
   });
-
-}).call(this);
+}.call(this));

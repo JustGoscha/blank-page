@@ -14,10 +14,8 @@ var strongRepl = "<strong>$2</strong>";
 var italics = /(\*|__)([^]*?)\1/g;
 var italicsRepl = "<em>$2</em>";
 
-var multipleChoice = /(::)([^]*?)\1/ // ::(Choice one=>1)(Choice two=>2)::
-var decisions = /(\()(.*?)=>(\w*)(\))/g
-
-
+var multipleChoice = /(::)([^]*?)\1/; // ::(Choice one=>1)(Choice two=>2)::
+var decisions = /(\()(.*?)=>(\w*)(\))/g;
 
 Parser.prototype.paths = function(text) {
   var splitted = text.split(pathRegex);
@@ -26,7 +24,9 @@ Parser.prototype.paths = function(text) {
     if (paths[splitted[i]] === undefined) {
       paths[splitted[i]] = splitted[i + 1];
     } else {
-      console.log(`Warning - Path ${paths[splitted[i]]} defined multiple times!`);
+      console.log(
+        `Warning - Path ${paths[splitted[i]]} defined multiple times!`
+      );
     }
   }
   console.log(paths);
@@ -73,7 +73,7 @@ Parser.prototype.section = function(text) {
   return section;
 };
 
-function parseFontStyle(text){
+function parseFontStyle(text) {
   // *italics*
   // **strong**
 
@@ -82,20 +82,18 @@ function parseFontStyle(text){
   return text;
 }
 
-function parseLineBreaks(text){
-  return text.replace(/\r?\n/g,"<br>");
+function parseLineBreaks(text) {
+  return text.replace(/\r?\n/g, "<br>");
 }
 
-function parseMultipleChoice(part){
+function parseMultipleChoice(part) {
   var match = multipleChoice.exec(part);
-  if(!match) 
-    return false;
+  if (!match) return false;
   var mc = match[2];
 
   var choiceHtml = '<div class="choice" data-path="$3">$2</div>';
   var choices = mc.replace(decisions, choiceHtml);
-  if(mc == choices)
-    return false;
+  if (mc == choices) return false;
   choices = `<div class="multiple-choice">${choices}</div>`;
 
   // replace in the input string
@@ -103,7 +101,7 @@ function parseMultipleChoice(part){
   return part;
 }
 
-Parser.prototype.part = function(part){
+Parser.prototype.part = function(part) {
   var html = parseFontStyle(part);
   html = parseLineBreaks(html);
   var mc = parseMultipleChoice(html);
@@ -115,7 +113,6 @@ Parser.prototype.part = function(part){
 
   return parsed;
 };
-
 
 var parser = new Parser();
 // module.exports = parser;
