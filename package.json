@@ -5,6 +5,7 @@
   "main": "main.js",
   "scripts": {
     "build": "gulp build",
+    "build:watch": "nodemon -e js,less,png,jpg,gif --ignore css/ --ignore build/ --ignore bower_components --ignore node_modules -x 'npm run build'",
     "test": "./test.sh"
   },
   "author": "Georg Graf",
