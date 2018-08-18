@@ -1,9 +1,147 @@
-@import url(https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600,700);
-@import url(https://fonts.googleapis.com/css?family=Cardo:400,400italic,700);
-@import url(https://fonts.googleapis.com/css?family=Amiri:400,400italic,700,700italic);
-@import url(https://fonts.googleapis.com/css?family=Playfair+Display:400,400italic,700,700italic);
-@import url(https://fonts.googleapis.com/css?family=Lato:400,700,700italic,400italic,300,300italic);
-@import url(https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700,700italic&subset=latin,cyrillic-ext,latin-ext,cyrillic);
+@font-face {
+  font-family: 'Source Serif Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Source Serif Pro'), local('SourceSerifPro-Regular'), url(https://fonts.gstatic.com/s/sourceserifpro/v5/neIQzD-0qpwxpaWvjeD0X88SAOeauXQ-pQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Source Serif Pro';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Source Serif Pro Semibold'), local('SourceSerifPro-Semibold'), url(https://fonts.gstatic.com/s/sourceserifpro/v5/neIXzD-0qpwxpaWvjeD0X88SAOeasasatSyqwQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Source Serif Pro';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Source Serif Pro Bold'), local('SourceSerifPro-Bold'), url(https://fonts.gstatic.com/s/sourceserifpro/v5/neIXzD-0qpwxpaWvjeD0X88SAOeasc8btSyqwQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Cardo';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Cardo Italic'), local('Cardo-Italic'), url(https://fonts.gstatic.com/s/cardo/v9/wlpxgwjKBV1pqhv97IMx2Q.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Cardo';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Cardo'), local('Cardo-Regular'), url(https://fonts.gstatic.com/s/cardo/v9/wlp_gwjKBV1pqhv43IQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Cardo';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Cardo Bold'), local('Cardo-Bold'), url(https://fonts.gstatic.com/s/cardo/v9/wlpygwjKBV1pqhND-ZQW-WY.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Amiri';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Amiri Italic'), local('Amiri-Italic'), url(https://fonts.gstatic.com/s/amiri/v11/J7afnpd8CGxBHpUrhLEY7g.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Amiri';
+  font-style: italic;
+  font-weight: 700;
+  src: local('Amiri Bold Italic'), local('Amiri-BoldItalic'), url(https://fonts.gstatic.com/s/amiri/v11/J7aanpd8CGxBHpUrjAo9_pxqGg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Amiri';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Amiri Regular'), local('Amiri-Regular'), url(https://fonts.gstatic.com/s/amiri/v11/J7aRnpd8CGxBHpUutLY.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Amiri';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Amiri Bold'), local('Amiri-Bold'), url(https://fonts.gstatic.com/s/amiri/v11/J7acnpd8CGxBHp2VkaY_zps.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Playfair Display Italic'), local('PlayfairDisplay-Italic'), url(https://fonts.gstatic.com/s/playfairdisplay/v13/nuFkD-vYSZviVYUb_rj3ij__anPXDTnogkk-.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: italic;
+  font-weight: 700;
+  src: local('Playfair Display Bold Italic'), local('PlayfairDisplay-BoldItalic'), url(https://fonts.gstatic.com/s/playfairdisplay/v13/nuFnD-vYSZviVYUb_rj3ij__anPXDTngOWwu5DRj.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Playfair Display Regular'), local('PlayfairDisplay-Regular'), url(https://fonts.gstatic.com/s/playfairdisplay/v13/nuFiD-vYSZviVYUb_rj3ij__anPXDTzYhQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Playfair Display Bold'), local('PlayfairDisplay-Bold'), url(https://fonts.gstatic.com/s/playfairdisplay/v13/nuFlD-vYSZviVYUb_rj3ij__anPXBYf9lW4e4w.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: italic;
+  font-weight: 300;
+  src: local('Lato Light Italic'), local('Lato-LightItalic'), url(https://fonts.gstatic.com/s/lato/v14/S6u_w4BMUTPHjxsI9w2_Gwfo.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Lato Italic'), local('Lato-Italic'), url(https://fonts.gstatic.com/s/lato/v14/S6u8w4BMUTPHjxsAXC-v.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: italic;
+  font-weight: 700;
+  src: local('Lato Bold Italic'), local('Lato-BoldItalic'), url(https://fonts.gstatic.com/s/lato/v14/S6u_w4BMUTPHjxsI5wq_Gwfo.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Lato Light'), local('Lato-Light'), url(https://fonts.gstatic.com/s/lato/v14/S6u9w4BMUTPHh7USSwiPHA.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Lato Regular'), local('Lato-Regular'), url(https://fonts.gstatic.com/s/lato/v14/S6uyw4BMUTPHjx4wWw.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Lato Bold'), local('Lato-Bold'), url(https://fonts.gstatic.com/s/lato/v14/S6u9w4BMUTPHh6UVSwiPHA.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'PT Serif';
+  font-style: italic;
+  font-weight: 400;
+  src: local('PT Serif Italic'), local('PTSerif-Italic'), url(https://fonts.gstatic.com/s/ptserif/v9/EJRTQgYoZZY2vCFuvAFTzro.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'PT Serif';
+  font-style: italic;
+  font-weight: 700;
+  src: local('PT Serif Bold Italic'), local('PTSerif-BoldItalic'), url(https://fonts.gstatic.com/s/ptserif/v9/EJRQQgYoZZY2vCFuvAFT9gaQVy4.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'PT Serif';
+  font-style: normal;
+  font-weight: 400;
+  src: local('PT Serif'), local('PTSerif-Regular'), url(https://fonts.gstatic.com/s/ptserif/v9/EJRVQgYoZZY2vCFuvDFR.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'PT Serif';
+  font-style: normal;
+  font-weight: 700;
+  src: local('PT Serif Bold'), local('PTSerif-Bold'), url(https://fonts.gstatic.com/s/ptserif/v9/EJRSQgYoZZY2vCFuvAnt65qV.ttf) format('truetype');
+}
 .gg-blank-page-wrapper {
   box-sizing: border-box;
   padding: 50px 40px;
@@ -39,7 +177,7 @@
   position: relative;
 }
 .gg-blank-page-wrapper .multiple-choice:hover .choice {
-  opacity: .5;
+  opacity: 0.5;
   transition: opacity 0.2s ease-out, transform 0.3s cubic-bezier(0, 0.11, 0.31, 1.43);
   transform: translateY(0) !important;
 }
@@ -51,7 +189,7 @@
   transition: opacity 0.4s ease-out 0.3s, transform 0.3s cubic-bezier(0, 0.11, 0.31, 1.43) 0.4s;
 }
 .gg-blank-page-wrapper .multiple-choice .choice:first-child {
-  opacity: .5;
+  opacity: 0.5;
   transform: translateY(0);
 }
 .gg-blank-page-wrapper .multiple-choice .choice:nth-child(1) {
