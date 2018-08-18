@@ -1,25 +1,28 @@
 var content;
 
-function Paper(element){
-  if(element instanceof Element){
+function Paper(element) {
+  if (element instanceof Element) {
     this.element = element;
-  } else if (element instanceof Array && element.length > 0){
-    if(element[0] instanceof Element){
+  } else if (element instanceof Array && element.length > 0) {
+    if (element[0] instanceof Element) {
       this.element = element[0];
     } else {
       throw new Error("Provided an array with no element types.");
     }
-  } else if (typeof element === "string"){
+  } else if (typeof element === "string") {
     this.element = document.querySelector(element);
-    if(!this.element) throw new Error("Provided a string, but no element matches "+element);
+    if (!this.element)
+      throw new Error("Provided a string, but no element matches " + element);
   } else {
-    throw new Error("Provide an element or id/class string of element to display your story on");
-  } 
+    throw new Error(
+      "Provide an element or id/class string of element to display your story on"
+    );
+  }
 
   initDocument(this.element);
 }
 
-function initDocument(el){
+function initDocument(el) {
   // create top level wrapper
   var outer = document.createElement("div");
   var inner = document.createElement("div");
@@ -30,33 +33,31 @@ function initDocument(el){
   content = inner;
 }
 
-
-
 /**
  * Creates new paragraph on element
  * 
  * @param paragraph string
  */
-Paper.prototype.writeParagraph = function(paragraph){
+Paper.prototype.writeParagraph = function(paragraph) {
   var p = document.createElement("p");
   p.innerHTML = paragraph;
   this.currentParagraph = p;
   content.appendChild(p);
-}
+};
 
 /**
  * Add text to paragraph after continue
  * 
  * @param more (description)
  */
-Paper.prototype.continue = function(more){
-  if(!this.currentParagraph){
+Paper.prototype.continue = function(more) {
+  if (!this.currentParagraph) {
     this.writeParagraph(more);
     return;
   }
   var p = this.currentParagraph;
   p.innerHTML = p.innerHTML + more;
-}
+};
 
 export default Paper;
 
@@ -68,7 +69,7 @@ export default Paper;
 //       if(/\s/g.test(c)){
 //         index++
 //         if (index >= word.length) return
-        
+
 //         c=c+word[index];
 //       }
 //       paper.continue(c)
