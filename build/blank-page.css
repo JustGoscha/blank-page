@@ -30,8 +30,7 @@
 }
 .gg-blank-page-wrapper .more {
   cursor: pointer;
-  -webkit-animation: 0.8s ease-in-out 0s infinite alternate blink;
-          animation: 0.8s ease-in-out 0s infinite alternate blink;
+  animation: 0.8s ease-in-out 0s infinite alternate blink;
 }
 .gg-blank-page-wrapper .multiple-choice {
   cursor: pointer;
@@ -41,63 +40,46 @@
 }
 .gg-blank-page-wrapper .multiple-choice:hover .choice {
   opacity: .5;
-  -webkit-transition: opacity 0.2s ease-out, -webkit-transform 0.3s cubic-bezier(0, 0.11, 0.31, 1.43);
-  transition: opacity 0.2s ease-out, -webkit-transform 0.3s cubic-bezier(0, 0.11, 0.31, 1.43);
   transition: opacity 0.2s ease-out, transform 0.3s cubic-bezier(0, 0.11, 0.31, 1.43);
-  transition: opacity 0.2s ease-out, transform 0.3s cubic-bezier(0, 0.11, 0.31, 1.43), -webkit-transform 0.3s cubic-bezier(0, 0.11, 0.31, 1.43);
-  -webkit-transform: translateY(0) !important;
-          transform: translateY(0) !important;
+  transform: translateY(0) !important;
 }
 .gg-blank-page-wrapper .multiple-choice .choice {
   position: relative;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   opacity: 0;
   display: block;
-  -webkit-transition: opacity 0.4s ease-out 0.3s, -webkit-transform 0.3s cubic-bezier(0, 0.11, 0.31, 1.43) 0.4s;
-  transition: opacity 0.4s ease-out 0.3s, -webkit-transform 0.3s cubic-bezier(0, 0.11, 0.31, 1.43) 0.4s;
   transition: opacity 0.4s ease-out 0.3s, transform 0.3s cubic-bezier(0, 0.11, 0.31, 1.43) 0.4s;
-  transition: opacity 0.4s ease-out 0.3s, transform 0.3s cubic-bezier(0, 0.11, 0.31, 1.43) 0.4s, -webkit-transform 0.3s cubic-bezier(0, 0.11, 0.31, 1.43) 0.4s;
 }
 .gg-blank-page-wrapper .multiple-choice .choice:first-child {
   opacity: .5;
-  -webkit-transform: translateY(0);
-          transform: translateY(0);
+  transform: translateY(0);
 }
 .gg-blank-page-wrapper .multiple-choice .choice:nth-child(1) {
-  -webkit-transform: translateY(0%);
-          transform: translateY(0%);
+  transform: translateY(0%);
 }
 .gg-blank-page-wrapper .multiple-choice .choice:nth-child(2) {
-  -webkit-transform: translateY(33%);
-          transform: translateY(33%);
+  transform: translateY(33%);
 }
 .gg-blank-page-wrapper .multiple-choice .choice:nth-child(3) {
-  -webkit-transform: translateY(66%);
-          transform: translateY(66%);
+  transform: translateY(66%);
 }
 .gg-blank-page-wrapper .multiple-choice .choice:nth-child(4) {
-  -webkit-transform: translateY(99%);
-          transform: translateY(99%);
+  transform: translateY(99%);
 }
 .gg-blank-page-wrapper .multiple-choice .choice:nth-child(5) {
-  -webkit-transform: translateY(132%);
-          transform: translateY(132%);
+  transform: translateY(132%);
 }
 .gg-blank-page-wrapper .multiple-choice .choice:nth-child(6) {
-  -webkit-transform: translateY(165%);
-          transform: translateY(165%);
+  transform: translateY(165%);
 }
 .gg-blank-page-wrapper .multiple-choice .choice:nth-child(7) {
-  -webkit-transform: translateY(198%);
-          transform: translateY(198%);
+  transform: translateY(198%);
 }
 .gg-blank-page-wrapper .multiple-choice .choice:nth-child(8) {
-  -webkit-transform: translateY(231%);
-          transform: translateY(231%);
+  transform: translateY(231%);
 }
 .gg-blank-page-wrapper .multiple-choice .choice:nth-child(9) {
-  -webkit-transform: translateY(264%);
-          transform: translateY(264%);
+  transform: translateY(264%);
 }
 .gg-blank-page-wrapper .multiple-choice .choice:hover {
   opacity: 1;
@@ -105,14 +87,6 @@
 @media (max-width: 600px) {
   .gg-blank-page-wrapper {
     font-size: 20px;
-  }
-}
-@-webkit-keyframes blink {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
   }
 }
 @keyframes blink {
