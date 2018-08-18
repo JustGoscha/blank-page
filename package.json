@@ -4,7 +4,9 @@
   "description": "A simple interactive story engine.",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "gulp build",
+    "build:watch": "nodemon -e js,less,png,jpg,gif --ignore css/ --ignore build/ --ignore bower_components --ignore node_modules -x 'npm run build'",
+    "test": "./test.sh"
   },
   "author": "Georg Graf",
   "license": "MIT",
