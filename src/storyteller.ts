@@ -1,6 +1,6 @@
-import parser from "./parser.js"
-import Paper from "./paper.js"
-import interaction from "./interaction.js"
+import parser from "./parser"
+import Paper from "./paper"
+import interaction from "./interaction"
 
 function Storyteller() {}
 
