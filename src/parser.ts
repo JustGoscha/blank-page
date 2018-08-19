@@ -14,25 +14,30 @@ export type StorySection = {
   r: string
 }
 
+export type StoryPaths = {
+  [key: string]: string
+}
+
 export class Parser {
-  paths(text: string): Story {
+  paths(text: string): StoryPaths {
     const splitted = text.split(pathRegex)
-    var paths = {}
+    const paths: StoryPaths = {}
+
     for (var i = 1; i < splitted.length; i += 2) {
-      if (paths[splitted[i]] === undefined) {
-        paths[splitted[i]] = splitted[i + 1]
+      const pathId = splitted[i]
+      const pathContent = splitted[i + 1]
+      if (paths[pathId] === undefined) {
+        paths[pathId] = pathContent
       } else {
-        console.log(
-          `Warning - Path ${paths[splitted[i]]} defined multiple times!`
-        )
+        console.log(`Warning - Path ${paths[pathId]} defined multiple times!`)
       }
     }
     console.log(paths)
     return paths
   }
 
-  section(text: string) {
-    var section = {} as StorySection
+  section(text: string): Partial<StorySection> {
+    const section: Partial<StorySection> = {}
     var nl = trimNewlineOrSpace(text)
 
     text = nl[1]
@@ -81,7 +86,7 @@ function trimSpace(text) {
   return text
 }
 
-function trimNewlineOrSpace(text) {
+function trimNewlineOrSpace(text): [boolean, string] {
   var newline = beginsWithNewline.test(text)
   if (newline) text = text.split(beginsWithNewline)[1]
   else text = trimSpace(text)
