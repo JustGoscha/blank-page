@@ -5,5 +5,4 @@ cache:
     - "node_modules"
 
 after_success:
-  - npm install codecov -g
-  - codecov
+  - npm run update-codecoverage
