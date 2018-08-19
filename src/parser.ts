@@ -62,7 +62,7 @@ function splitParagraphs(text) {
 }
 
 Parser.prototype.section = function(text) {
-  var section = {}
+  var section = {} as any
   var nl = trimNewlineOrSpace(text)
 
   text = nl[1]

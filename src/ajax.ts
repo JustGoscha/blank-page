@@ -8,7 +8,9 @@
  */
 function ajax(url, callback, data, x) {
   try {
-    x = new (window.XMLHttpRequest || ActiveXObject)("MSXML2.XMLHTTP.3.0")
+    x = new ((window as any).XMLHttpRequest || (window as any).ActiveXObject)(
+      "MSXML2.XMLHTTP.3.0"
+    )
     x.open(data ? "POST" : "GET", url, 1)
     x.setRequestHeader("X-Requested-With", "XMLHttpRequest")
     x.setRequestHeader("Content-type", "application/x-www-form-urlencoded")

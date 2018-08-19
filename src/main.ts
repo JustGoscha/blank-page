@@ -12,12 +12,17 @@ var el
 var Blank = function(url, element) {
   this.url = url
   el = element
-  ajax(url, data => {
-    // parse story...
-    story = parser.paths(data)
-    doneCallback()
-    done = true
-  })
+  ajax(
+    url,
+    data => {
+      // parse story...
+      story = parser.paths(data)
+      doneCallback()
+      done = true
+    },
+    undefined,
+    undefined
+  )
   return this
 }
 
@@ -35,5 +40,4 @@ Blank.prototype.start = function() {
     }
   }
 }
-
-window.Blank = Blank
+;(window as any).Blank = Blank
