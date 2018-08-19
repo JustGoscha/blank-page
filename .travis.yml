@@ -5,4 +5,4 @@ cache:
     - "node_modules"
 
 after_success:
-  - npm run update-codecoverage
+  - npm run upload-codecoverage
