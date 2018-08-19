@@ -1,37 +1,77 @@
-"use strict"
-function Parser() {}
+export type Story = {
+  [key: string]: StorySection
+}
+
+export type StorySection = {
+  paragraphs: string[][]
+  newline: boolean
+
+  // possible links of selections
+  c: string[]
+  // selection phrases
+  s: string[]
+  // raw section string
+  r: string
+}
+
+export class Parser {
+  paths(text: string): Story {
+    const splitted = text.split(pathRegex)
+    var paths = {}
+    for (var i = 1; i < splitted.length; i += 2) {
+      if (paths[splitted[i]] === undefined) {
+        paths[splitted[i]] = splitted[i + 1]
+      } else {
+        console.log(
+          `Warning - Path ${paths[splitted[i]]} defined multiple times!`
+        )
+      }
+    }
+    console.log(paths)
+    return paths
+  }
+
+  section(text: string) {
+    var section = {} as StorySection
+    var nl = trimNewlineOrSpace(text)
+
+    text = nl[1]
+    section.newline = nl[0]
+    section.paragraphs = splitParagraphs(text)
+
+    console.log(section)
+    return section
+  }
+
+  part(part) {
+    var html = parseFontStyle(part)
+    html = parseLineBreaks(html)
+    var mc = parseMultipleChoice(html)
+
+    var parsed = {
+      text: mc || html,
+      multipleChoice: !!mc
+    }
+
+    return parsed
+  }
+}
 
 // § - path delimiter
-var pathRegex = /§(\w+)(?=\s)/
-var beginsWithNewline = /^\s*\n/
-var paraRegex = /^\s*\n/
-var whiteSpace = /^\s*$/
-var trailingWhitespace = /\s*$/
-var more = "[...]"
+const pathRegex = /§(\w+)(?=\s)/
+const beginsWithNewline = /^\s*\n/
+const paraRegex = /^\s*\n/
+const whiteSpace = /^\s*$/
+const trailingWhitespace = /\s*$/
+const more = "[...]"
 
-var strong = /(\*\*|__)([^]*?)\1/g
-var strongRepl = "<strong>$2</strong>"
-var italics = /(\*|__)([^]*?)\1/g
-var italicsRepl = "<em>$2</em>"
+const strong = /(\*\*|__)([^]*?)\1/g
+const strongRepl = "<strong>$2</strong>"
+const italics = /(\*|__)([^]*?)\1/g
+const italicsRepl = "<em>$2</em>"
 
-var multipleChoice = /(::)([^]*?)\1/ // ::(Choice one=>1)(Choice two=>2)::
-var decisions = /(\()(.*?)=>(\w*)(\))/g
-
-Parser.prototype.paths = function(text) {
-  var splitted = text.split(pathRegex)
-  var paths = {}
-  for (var i = 1; i < splitted.length; i += 2) {
-    if (paths[splitted[i]] === undefined) {
-      paths[splitted[i]] = splitted[i + 1]
-    } else {
-      console.log(
-        `Warning - Path ${paths[splitted[i]]} defined multiple times!`
-      )
-    }
-  }
-  console.log(paths)
-  return paths
-}
+const multipleChoice = /(::)([^]*?)\1/ // ::(Choice one=>1)(Choice two=>2)::
+const decisions = /(\()(.*?)=>(\w*)(\))/g
 
 function trimSpace(text) {
   if (text.indexOf(" ") === 0) {
@@ -48,29 +88,17 @@ function trimNewlineOrSpace(text) {
   return [newline, text]
 }
 
-function splitParagraphs(text) {
-  var paragraphs = text.split(/\r?\n\r?\n/g)
+function splitParagraphs(text: string): string[][] {
+  let paragraphs = text.split(/\r?\n\r?\n/g)
   paragraphs = paragraphs.filter(function(p) {
     return !whiteSpace.test(p)
   })
-  paragraphs = paragraphs.map(function(p) {
-    var ps = p.split(more)
+  const chunkedParagraphs = paragraphs.map(function(paragraph) {
+    var ps = paragraph.split(more)
     ps[ps.length - 1] = ps[ps.length - 1].replace(trailingWhitespace, "")
     return ps
   })
-  return paragraphs
-}
-
-Parser.prototype.section = function(text) {
-  var section = {} as any
-  var nl = trimNewlineOrSpace(text)
-
-  text = nl[1]
-  section.newline = nl[0]
-  section.paragraphs = splitParagraphs(text)
-
-  console.log(section)
-  return section
+  return chunkedParagraphs
 }
 
 function parseFontStyle(text) {
@@ -86,13 +114,13 @@ function parseLineBreaks(text) {
   return text.replace(/\r?\n/g, "<br>")
 }
 
-function parseMultipleChoice(part) {
-  var match = multipleChoice.exec(part)
+function parseMultipleChoice(part: string) {
+  const match = multipleChoice.exec(part)
   if (!match) return false
-  var mc = match[2]
+  const mc = match[2]
 
-  var choiceHtml = '<div class="choice" data-path="$3">$2</div>'
-  var choices = mc.replace(decisions, choiceHtml)
+  const choiceHtml = '<div class="choice" data-path="$3">$2</div>'
+  let choices = mc.replace(decisions, choiceHtml)
   if (mc == choices) return false
   choices = `<div class="multiple-choice">${choices}</div>`
 
@@ -101,19 +129,5 @@ function parseMultipleChoice(part) {
   return part
 }
 
-Parser.prototype.part = function(part) {
-  var html = parseFontStyle(part)
-  html = parseLineBreaks(html)
-  var mc = parseMultipleChoice(html)
-
-  var parsed = {
-    text: mc || html,
-    multipleChoice: !!mc
-  }
-
-  return parsed
-}
-
-var parser = new Parser()
-// module.exports = parser;
+export const parser = new Parser()
 export default parser
