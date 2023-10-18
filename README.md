@@ -7,7 +7,7 @@
   </a>
   
   <a href="https://dl.circleci.com/status-badge/redirect/circleci/HHeEJgsZJ3nARZgYFF9Mbh/CYwpVjSSZKKW77qEXnNKEB/tree/master">
-    <img alt="Circle CI Build Status" src="https://dl.circleci.com/status-badge/img/circleci/HHeEJgsZJ3nARZgYFF9Mbh/CYwpVjSSZKKW77qEXnNKEB/tree/master.svg">
+    <img alt="Circle CI Build Status" src="https://dl.circleci.com/status-badge/img/circleci/HHeEJgsZJ3nARZgYFF9Mbh/CYwpVjSSZKKW77qEXnNKEB/tree/master.svg?style=shield&circle-token=1afb902318ae06da7b1e11bfb5ff2be729fabeab">
   </a>
   
   <a href="https://codecov.io/gh/JustGoscha/blank-page" > 
