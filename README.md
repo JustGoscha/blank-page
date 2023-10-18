@@ -1,5 +1,6 @@
-# Blank Page
-============
+# Blank Page - Simple Interactive Story Language
+
+
 <p align="center">
   <a href="https://travis-ci.com/JustGoscha/blank-page">
     <img alt="Travis CI Build Status" src="https://travis-ci.com/JustGoscha/blank-page.svg?branch=master">
