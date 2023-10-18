@@ -1,0 +1,38 @@
+version: 2.1
+
+orbs:
+  codecov: codecov/codecov@3.3.0
+
+jobs:
+  build:
+    docker:
+      - image: circleci/node:10
+
+    working_directory: ~/your-project-folder
+
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - node-v10-deps-{{ checksum "package-lock.json" }}
+            # Add more keys if you have other caches to restore
+      - run:
+          name: Install Dependencies
+          command: npm install
+
+      - save_cache:
+          key: node-v10-deps-{{ checksum "package-lock.json" }}
+          paths:
+            - node_modules
+
+      - run:
+          name: Run Tests
+          command: npm test
+
+      - codecov/upload
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build
