@@ -16,7 +16,6 @@ jobs:
           keys:
             - node-v10-deps-{{ checksum "package-lock.json" }}
             # Add more keys if you have other caches to restore
-
       - run:
           name: Install Dependencies
           command: npm install
@@ -30,9 +29,7 @@ jobs:
           name: Run Tests
           command: npm test
 
-      - run:
-          name: Upload Code Coverage
-          command: npm run upload-codecoverage
+      - codecov/upload
 
 workflows:
   version: 2
