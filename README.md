@@ -5,6 +5,11 @@
   <a href="https://travis-ci.com/JustGoscha/blank-page">
     <img alt="Travis CI Build Status" src="https://travis-ci.com/JustGoscha/blank-page.svg?branch=master">
   </a>
+  
+  <a href="https://dl.circleci.com/status-badge/redirect/circleci/HHeEJgsZJ3nARZgYFF9Mbh/CYwpVjSSZKKW77qEXnNKEB/tree/main">
+    <img alt="Circle CI Build Status" src="https://dl.circleci.com/status-badge/img/circleci/HHeEJgsZJ3nARZgYFF9Mbh/CYwpVjSSZKKW77qEXnNKEB/tree/main.svg?style=svg">
+  </a>
+  
   <a href="https://codecov.io/gh/JustGoscha/blank-page" > 
     <img src="https://codecov.io/gh/JustGoscha/blank-page/graph/badge.svg?token=B7t1uYM8Tu"/> 
   </a>
